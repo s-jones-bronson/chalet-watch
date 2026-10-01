@@ -3,6 +3,11 @@ on:
   schedule:
     - cron: "*/5 * * * *"
   workflow_dispatch:
+    inputs:
+      nights:
+        description: "Comma-separated nights to check (default 2026-11-06,2026-11-07)"
+        required: false
+        default: ""
 jobs:
   check:
     runs-on: ubuntu-latest
@@ -12,3 +17,4 @@ jobs:
       - run: python3 check.py
         env:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          NIGHTS: ${{ inputs.nights }}

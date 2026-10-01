@@ -5,7 +5,7 @@ import sys
 import urllib.request
 
 URL = "https://homminichalets.com/apps/hostfully-integration/hostfully/properties"
-NIGHTS = os.environ.get("NIGHTS", "2026-11-06,2026-11-07").split(",")
+NIGHTS = (os.environ.get("NIGHTS") or "2026-11-06,2026-11-07").split(",")
 TOPIC = os.environ.get("NTFY_TOPIC", "")
 
 
